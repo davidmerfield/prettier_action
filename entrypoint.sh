@@ -78,12 +78,12 @@ if _git_changed; then
       echo "Amending the current commit..."
       git pull
       git commit --amend --no-edit
-      git push origin -f
+      # git push origin -f
     else
       git commit -m "$INPUT_COMMIT_MESSAGE" --author="$GITHUB_ACTOR <$GITHUB_ACTOR@users.noreply.github.com>" ${INPUT_COMMIT_OPTIONS:+"$INPUT_COMMIT_OPTIONS"} || echo "No files added to commit"
-      git push origin
+      # git push origin
     fi
-    echo "Changes pushed successfully."
+    echo "Changes committed successfully."
   fi
 else
   echo "Nothing to commit. Exiting."
